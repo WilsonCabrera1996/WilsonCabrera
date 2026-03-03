@@ -1,0 +1,76 @@
+<div class="main-container">
+    <div class="busqueda-section">
+        <input 
+        type="text"
+        placeholder="Buscar..."
+        class="busqueda-input"
+        (input)="onSearch($event)">
+
+        <button class="btn-agregar"
+        (click)="goToAdd()"
+        >
+        Agregar
+        </button>
+    </div>
+    <div class="contenido-table">
+        <div class="loader-container" *ngIf="isLoading">
+            <div class="spinner"></div>
+            <p>Cargando información...</p>
+        </div>
+        <div *ngIf="!isLoading">
+
+            <div class="contenido-table">
+                <div class="table-responsive">
+                    <table class="productos-table">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre del Producto</th>
+                    <th>Descripcion <i class="info-icon">i</i></th>
+                    <th>Fecha de liberación <i class="info-icon"></i></th>
+                    <th>Fecha de revisión <i class="info-icon">i</i> </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of filteredProducts">
+                    <td> <img [src]="product.logo" [alt]="product.name" class="product-logo"> </td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.date_release | date:'dd/MM/yyyy'}}</td>
+                    <td>{{product.date_revision | date:'dd/MM/yyyy'}}</td>
+                    <td class="actions-cell">
+                        <button class="btn-actions" (click)="toggleMenu(product.id)">⋮</button>
+                        <div class="dropdown-menu" *ngIf="activeMenuId === product.id">
+                            <button (click)="onEdit(product)">Editar</button>
+                            <button (click)="openDeleteModal(product)">Eliminar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                </div>
+            </div>
+
+            
+        </div>
+        
+
+        <div class="table-footer">
+            <span>{{filteredProducts.length}} Resultados</span>
+            <select (change)="onLimitChange($event)" class="limit-select">
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<app-confirm-modal
+*ngIf="showModal"
+[productName]="selectedProduct?.name || ''"
+(confirm)="deleteProduct()"
+(cancel)="showModal = false"
+>
+</app-confirm-modal>

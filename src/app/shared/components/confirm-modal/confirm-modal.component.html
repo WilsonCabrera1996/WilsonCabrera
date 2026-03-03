@@ -1,0 +1,14 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-body">
+      <p>¿Estás seguro que deseas eliminar el producto <strong>{{ productName }}</strong>?</p>
+    </div>
+    
+    <hr class="modal-divider">
+    
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="cancel.emit()">Cancelar</button>
+      <button class="btn-confirm" (click)="confirm.emit()">Confirmar</button>
+    </div>
+  </div>
+</div>
