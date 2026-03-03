@@ -1,27 +1,60 @@
-# MiApp
+## Test Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologías y Versiones
 
-## Code scaffolding
+Para este Test utilizé las versiones:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Herramienta | Versión |
+| :--- | :--- |
+| **Angular CLI** | 17.3.17 |
+| **Angular Core** | 17.3.12 |
+| **Node.js** | 20.20.0 (LTS) |
+| **TypeScript** | 5.4.5 |
+| **Package Manager** | npm 10.8.2 |
 
-## Build
+### Pasos para instalación 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instalar las dependencias: `npm install`
 
-## Running unit tests
+Levantar el servidor de desarrollo: `npm start` o `ng serve`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Una vez que la terminal indique que el bundle está listo, abre el navegador en: `http://localhost:4200`
 
-## Running end-to-end tests
+### Resultado del Test con Jest
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<details>
+  <summary>Ver reporte detallado de cobertura</summary>
 
-## Further help
+  -------------------------------------|---------|----------|---------|---------|-------------------
+File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------------|---------|----------|---------|---------|-------------------
+All files                            |     100 |    92.85 |     100 |     100 |                   
+ app                                 |     100 |      100 |     100 |     100 |                   
+  app.component.html                 |     100 |      100 |     100 |     100 |                   
+  app.component.ts                   |     100 |      100 |     100 |     100 |                   
+ app/core/interceptors               |     100 |      100 |     100 |     100 |                   
+  error.interceptor.ts               |     100 |      100 |     100 |     100 |                   
+ app/core/services                   |     100 |      100 |     100 |     100 |                   
+  product.service.ts                 |     100 |      100 |     100 |     100 |                   
+ app/core/validators                 |     100 |      100 |     100 |     100 |                   
+  date.validator.ts                  |     100 |      100 |     100 |     100 |                   
+  id-exists.validator.ts             |     100 |      100 |     100 |     100 |                   
+ app/pages/product-form              |     100 |    95.23 |     100 |     100 |                   
+  product-form.component.html        |     100 |      100 |     100 |     100 |                   
+  product-form.component.ts          |     100 |    95.23 |     100 |     100 | 62                
+ app/pages/product-list              |     100 |    71.42 |     100 |     100 |                   
+  product-list.component.html        |     100 |      100 |     100 |     100 |                   
+  product-list.component.ts          |     100 |    71.42 |     100 |     100 | 38-55             
+ app/shared/components/confirm-modal |     100 |      100 |     100 |     100 |                   
+  confirm-modal.component.html       |     100 |      100 |     100 |     100 |                   
+  confirm-modal.component.ts          |     100 |      100 |     100 |     100 |                   
+-------------------------------------|---------|----------|---------|---------|-------------------
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Test Suites: 8 passed, 8 total
+Tests:       38 passed, 38 total
+Snapshots:   0 total
+Time:        5.258 s
+
+</details>
